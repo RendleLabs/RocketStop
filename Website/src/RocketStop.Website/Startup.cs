@@ -39,14 +39,6 @@ namespace RocketStop.Website
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseRouter(routes =>
-            {
-                routes.MapGet("api/docks/available", (req, res, routeData) =>
-                {
-                    return res.WriteAsync("Hello");
-                });
-            });
-
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

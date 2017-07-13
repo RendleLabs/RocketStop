@@ -26,6 +26,7 @@
 x64/
 x86/
 bld/
+output/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
