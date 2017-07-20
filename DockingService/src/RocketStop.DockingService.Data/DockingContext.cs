@@ -12,7 +12,7 @@ namespace RocketStop.DockingService.Data
 
         public DbSet<Bay> Bays { get; set; }
         public DbSet<Ship> Ships { get; set; }
-        public DbSet<DockedShip> DockedShips { get; set; }
+        public DbSet<Docking> Dockings { get; set; }
 
     }
 }

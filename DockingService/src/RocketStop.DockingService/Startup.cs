@@ -15,6 +15,8 @@ namespace RocketStop.DockingService
 {
     public class Startup
     {
+        private readonly IHostingEnvironment _env;
+
         public Startup(IHostingEnvironment env)
         {
             Configuration = new ConfigurationBuilder()
@@ -23,6 +25,7 @@ namespace RocketStop.DockingService
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .Build();
+            _env = env;
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -30,15 +33,25 @@ namespace RocketStop.DockingService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<DockingContext>(options => {
-                options.UseNpgsql(Configuration.GetConnectionString("Docking"));
-            });
+            if (!_env.EnvironmentName.Equals("ef"))
+            {
+                services.AddDbContextPool<DockingContext>(options => {
+                    options.UseNpgsql(Configuration.GetConnectionString("Docking"));
+                });
+            }
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            if (!env.EnvironmentName.Equals("ef"))
+            {
+                var dbContextOptions = new DbContextOptionsBuilder<DockingContext>();
+                dbContextOptions.UseNpgsql(Configuration.GetConnectionString("Docking"));
+                var migrationHelper = new MigrationHelper(loggerFactory);
+                migrationHelper.TryMigrate(dbContextOptions.Options).GetAwaiter().GetResult();
+            }
             app.UseMvc();
         }
     }
