@@ -33,25 +33,16 @@ namespace RocketStop.DockingService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            if (!_env.EnvironmentName.Equals("ef"))
+            services.AddDbContextPool<DockingContext>(options =>
             {
-                services.AddDbContextPool<DockingContext>(options => {
-                    options.UseNpgsql(Configuration.GetConnectionString("Docking"));
-                });
-            }
+                options.UseNpgsql(Configuration.GetConnectionString("Docking"));
+            });
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            if (!env.EnvironmentName.Equals("ef"))
-            {
-                var dbContextOptions = new DbContextOptionsBuilder<DockingContext>();
-                dbContextOptions.UseNpgsql(Configuration.GetConnectionString("Docking"));
-                var migrationHelper = new MigrationHelper(loggerFactory);
-                migrationHelper.TryMigrate(dbContextOptions.Options).GetAwaiter().GetResult();
-            }
             app.UseMvc();
         }
     }

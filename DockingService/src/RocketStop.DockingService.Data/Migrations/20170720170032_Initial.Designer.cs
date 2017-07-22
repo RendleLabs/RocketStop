@@ -11,7 +11,7 @@ using System;
 namespace RocketStop.DockingService.Data.Migrations
 {
     [DbContext(typeof(DockingContext))]
-    [Migration("20170718193315_Initial")]
+    [Migration("20170720170032_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

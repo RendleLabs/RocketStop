@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9A805F88-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketStop.DockingService.Tests", "test\RocketStop.DockingService.Tests\RocketStop.DockingService.Tests.csproj", "{7F5D1675-4015-4F3A-9D5F-F03AE786606D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketStop.DockingService.Data", "src\RocketStop.DockingService.Data\RocketStop.DockingService.Data.csproj", "{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketStop.DockingService.Data", "src\RocketStop.DockingService.Data\RocketStop.DockingService.Data.csproj", "{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,16 +48,16 @@ Global
 		{7F5D1675-4015-4F3A-9D5F-F03AE786606D}.Release|x86.Build.0 = Release|Any CPU
 		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x64.ActiveCfg = Debug|x64
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x64.Build.0 = Debug|x64
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x86.ActiveCfg = Debug|x86
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x86.Build.0 = Debug|x86
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x64.Build.0 = Debug|Any CPU
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Debug|x86.Build.0 = Debug|Any CPU
 		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x64.ActiveCfg = Release|x64
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x64.Build.0 = Release|x64
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x86.ActiveCfg = Release|x86
-		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x86.Build.0 = Release|x86
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x64.ActiveCfg = Release|Any CPU
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x64.Build.0 = Release|Any CPU
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x86.ActiveCfg = Release|Any CPU
+		{0FE521E9-9CEC-4AE4-B03A-C1F66D099793}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

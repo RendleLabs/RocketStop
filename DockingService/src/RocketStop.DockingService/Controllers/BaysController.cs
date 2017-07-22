@@ -20,12 +20,24 @@ namespace RocketStop.DockingService.Controllers
         public async Task<IActionResult> Available([FromQuery]int width, [FromQuery]int height, [FromQuery]int depth)
         {
             var results = await (from bay in _context.Bays
-                join docking in _context.Dockings on bay.BayId equals docking.BayId into dd
-                from docking in dd.DefaultIfEmpty()
-                where bay.Width >= width && bay.Height >= height && bay.Depth >= depth && docking == null
-                select bay).ToListAsync();
+                                 join docking in _context.Dockings on bay.BayId equals docking.BayId into dd
+                                 from docking in dd.DefaultIfEmpty()
+                                 where bay.Width >= width && bay.Height >= height && bay.Depth >= depth && docking == null
+                                 select bay).ToListAsync();
 
             return Ok(results);
+        }
+
+        [HttpGet("available-count")]
+        public async Task<IActionResult> AvailableCount([FromQuery]int width, [FromQuery]int height, [FromQuery]int depth)
+        {
+            var count = await (from bay in _context.Bays
+                               join docking in _context.Dockings on bay.BayId equals docking.BayId into dd
+                               from docking in dd.DefaultIfEmpty()
+                               where bay.Width >= width && bay.Height >= height && bay.Depth >= depth && docking == null
+                               select bay).CountAsync();
+
+            return Ok(new { count });
         }
     }
 }
